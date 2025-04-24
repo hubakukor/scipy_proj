@@ -2,8 +2,8 @@ from load import load_edf_data
 import matplotlib.pyplot as plt
 import numpy as np
 
+# path to the EDF file
 edf_path = r"D:\downloads\PN00-1.edf"
-
 
 data, ch_names, sfreq = load_edf_data(edf_path)
 
