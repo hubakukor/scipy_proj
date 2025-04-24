@@ -1,16 +1,14 @@
 import mne
 import numpy as np
 
-def load_data(path):
 
-    X = []
-    Y = []
-    raw = mne.io.read_raw_edf(path) #load files
-    events, extracted_event_id = mne.events_from_annotations(raw)
-    epochs = mne.Epochs(events, extracted_event_id)
+def load_edf_data(filepath):
 
-    X.append(epochs)
-    X = np.concatenate(X, axis=0)
+    raw = mne.io.read_raw_edf(filepath, preload=True, verbose=False)
 
-    return X
+    data = raw.get_data()
+    ch_names = raw.ch_names
+    sfreq = raw.info['sfreq']
+
+    return data, ch_names, sfreq
 

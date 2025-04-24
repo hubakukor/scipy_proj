@@ -1,9 +1,21 @@
-from load import load_data
+from load import load_edf_data
+import matplotlib.pyplot as plt
+import numpy as np
 
 edf_path = r"D:\downloads\PN00-1.edf"
 
 
-X = load_data(edf_path)
+data, ch_names, sfreq = load_edf_data(edf_path)
 
-# raw = mne.io.read_raw_edf(edf_path, preload=True)
-# print(raw.info)
+np.info(data) #show information about the loaded data
+
+print(f"Channel names: {ch_names}")
+
+#plot the first channel
+times = np.arange(data.shape[1]) / sfreq
+plt.plot(times, data[0])
+plt.title(f"Channel {ch_names[0]}")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude (µV)")
+plt.tight_layout()
+plt.show()
