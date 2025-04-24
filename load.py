@@ -3,7 +3,16 @@ import numpy as np
 
 
 def load_edf_data(filepath):
+    '''
+    Load EDF data from a file path.
+    Args:
+        filepath (str): Path to the EDF file.
 
+    Returns:
+        data (np.ndarray): The loaded data stored in a numpy array.
+        ch_names: List of channel names.
+        sfreq: Sampling frequency.
+    '''
     raw = mne.io.read_raw_edf(filepath, preload=True, verbose=False)
 
     data = raw.get_data()
