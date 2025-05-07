@@ -1,14 +1,11 @@
 import mne
 from load import load_edf_data
-from fourier_of_data import data_fourier
 import matplotlib.pyplot as plt
 import numpy as np
 
 edf_path = r"C:\Users\veron\scipy_project\scipy_proj-1\PN00-1.edf"
 
 data, ch_names, sfreq = load_edf_data(edf_path)
-
-ft_magnitudes, mean_fft = data_fourier(data)
 
 np.info(data)
 
@@ -20,28 +17,47 @@ times = np.arange(data.shape[1]) / sfreq
 #plt.tight_layout()
 #plt.show()
 
-# plot the first 5 channel with vertical offset
-plt.figure(figsize=(14, 6))
-offset = 100 # microvolt offset for visibility
-scale_factor = 1e6  # convert from Volts to μV if needed
-data = data * scale_factor
+def plot_eeg_overview(data, ch_names, sfreq, n_channels=5, offset=100):
+    times = np.arange(data.shape[1]) / sfreq
+    data_scaled = data * 1e6
+    plt.figure(figsize=(14, 6))
+    for i in range(min(n_channels, data.shape[0])):
+        plt.plot(times, data_scaled[i] + i * offset, label = ch_names[i])
+    plt.xlabel("Time (s)")
+    plt.ylabel("Amplitude + Offset (µV)")
+    plt.title("EEG Channels Overview")
+    plt.legend(loc = "upper right")
+    plt.tight_layout()
+    plt.show()
 
-for i in range(5):
-    plt.plot(times, data[i] + i * offset, label=ch_names[i])
+def plot_fft_spectrum(mean_fft, sfreq, n_samples):
+    freqs = np.fft.fftfreq(n_samples, 1 / sfreq)
+    plt.figure(figsize=(10, 4))
+    plt.plot(freqs[:len(freqs)//2], mean_fft[:len(freqs)//2])
+    plt.title("Mean FFT Magnitude Spectrum")
+    plt.xlabel("Frequency (Hz)")
+    plt.ylabel("Magnitude")
+    plt.ylim(0, 1)
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
 
-plt.xlabel("Time (s)")
-plt.ylabel("Amplitude + Offset (µV)")
-plt.title("EEG Channels")
-plt.legend(loc="upper right")
-plt.tight_layout()
-plt.show()
-
-freqs = np.fft.fftfreq(data.shape[1], 1 / sfreq)
-plt.plot(freqs[:len(freqs)//2], mean_fft[:len(freqs)//2])
-plt.title("Mean FFT Magnitude Spectrum")
-plt.xlabel("Frequency (Hz)")
-plt.ylabel("Magnitude")
-plt.ylim(0, 1)
-plt.grid(True)
-plt.tight_layout()
-plt.show()
+def plot_graph_segments(data, sfreq, events, ch_names, window_sec=1.5, n_show=5):
+    window_samples = int(window_sec * sfreq)
+    plt.figure(figsize=(14, n_show * 3))
+    for i, event in enumerate(events[:n_show]):
+        ch_id = event["channel_index"]
+        t0 = int(event["time_sec"] * sfreq)
+        start = max(0, t0 - window_samples)
+        stop = min(t0 + window_samples, data.shape[1])
+        segment = data[ch_id, start:stop]
+        seg_times = np.linspace(-window_sec, window_sec, segment.shape[0])
+        plt.subplot(n_show, 1, i + 1)
+        plt.plot(seg_times, segment * 1e6, label=f"{ch_names[ch_id]} @ {event['time_sec']:.2f}s")
+        plt.axvline(0, color='red', linestyle='--', label='Detected Event')
+        plt.title(f"{ch_names[ch_id]} | Detected: {event['dominant_rhythm'].upper()} rythm")
+        plt.xlabel("Time (s)")
+        plt.ylabel("Amplitude (µV)")
+        plt.legend(loc="upper right")
+    plt.tight_layout()
+    plt.show()
