@@ -1,5 +1,6 @@
 from scipy.signal import resample
 from scipy.signal import iirnotch, filtfilt, butter
+import numpy as np
 
 
 
@@ -71,3 +72,42 @@ def bandpass_filter(data, freq, lowcut = None, highcut = None, order=5):
     b, a = butter(order, [low, high] if btype == 'band' else (low or high), btype=btype)
     data_filtered = filtfilt(b, a, data, axis=1)
     return data_filtered
+
+def zscore_normalization(data):
+    """
+    Apply z-score normalization per channel.
+    (doesn't work with fourier transform, only the dc component (0hz) remains in ft)
+
+    Parameters:
+        data (np.ndarray): EEG data, shape (n_channels, n_times)
+
+    Returns:
+        data_normalized (np.ndarray): Normalized EEG data.
+    """
+    mean = np.mean(data, axis=1, keepdims=True)
+    std = np.std(data, axis=1, keepdims=True)
+
+    data_normalized = (data - mean) / std
+
+    return data_normalized
+
+def minmax_normalization(data):
+    """
+    Apply min-max normalization per channel.
+
+    Parameters:
+        data (np.ndarray): EEG data, shape (n_channels, n_times)
+
+    Returns:
+        normalized data (np.ndarray)
+    """
+    min_val = np.min(data, axis=1, keepdims=True)
+    max_val = np.max(data, axis=1, keepdims=True)
+    return (data - min_val) / (max_val - min_val)
+
+def mean_centering(data):
+    """
+    Subtract mean per channel.
+    """
+    mean = np.mean(data, axis=1, keepdims=True)
+    return data - mean
