@@ -86,7 +86,7 @@ def zscore_normalization(data):
     """
     mean = np.mean(data, axis=1, keepdims=True)
     std = np.std(data, axis=1, keepdims=True)
-
+    std_safe = np.where(std == 0, 1, std)  # avoid divide by zero
     data_normalized = (data - mean) / std
 
     return data_normalized
@@ -99,15 +99,25 @@ def minmax_normalization(data):
         data (np.ndarray): EEG data, shape (n_channels, n_times)
 
     Returns:
-        normalized data (np.ndarray)
+        normalized (np.ndarray)
     """
     min_val = np.min(data, axis=1, keepdims=True)
     max_val = np.max(data, axis=1, keepdims=True)
-    return (data - min_val) / (max_val - min_val)
+    range_val = max_val - min_val
+    range_safe = np.where(range_val == 0, 1, range_val)  # avoid divide by zero
+    normalized = (data - min_val) / range_safe
+    return normalized
 
 def mean_centering(data):
     """
     Subtract mean per channel.
+
+    Parameters:
+        data (np.ndarray): EEG data, shape (n_channels, n_times)
+
+    Returns:
+        centered (np.ndarray)
     """
     mean = np.mean(data, axis=1, keepdims=True)
-    return data - mean
+    centered = data - mean
+    return centered
