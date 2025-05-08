@@ -17,4 +17,7 @@ setup(
         'matplotlib'
     ],
     python_requires='>=3.10',
+classifiers=[
+        'Programming Language :: Python :: 3',
+        ],
 )

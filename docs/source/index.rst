@@ -11,7 +11,7 @@ visualization, detection of EEG bands and Fourier analysis.
 
 Source code available at `https://github.com/hubakukor/scipy_proj`.
 
-A demo notebook showcasing the toolbox can be found in the repository in the ``examples`` folder.
+A demo notebook showcasing the toolbox is available at `https://github.com/hubakukor/scipy_proj/blob/master/examples/demo.ipynb`.
 
 Install with ``pip install git+https://github.com/hubakukor/scipy_proj.git``
 
