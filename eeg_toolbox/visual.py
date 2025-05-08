@@ -1,5 +1,4 @@
 import mne
-from load import load_edf_data
 import matplotlib.pyplot as plt
 import numpy as np
 
