@@ -16,5 +16,5 @@ setup(
         'mne',
         'matplotlib'
     ],
-    python_requires='>=3.12',
+    python_requires='>=3.10',
 )
