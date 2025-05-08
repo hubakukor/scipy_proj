@@ -3,19 +3,19 @@ from load import load_edf_data
 import matplotlib.pyplot as plt
 import numpy as np
 
-edf_path = r"C:\Users\veron\scipy_project\scipy_proj-1\PN00-1.edf"
-
-data, ch_names, sfreq = load_edf_data(edf_path)
-
-np.info(data)
-
-times = np.arange(data.shape[1]) / sfreq
-#plt.plot(times, data[0])
-#plt.title(f"Channel {ch_names[0]}")
-#plt.xlabel("Time (s)")
-#plt.ylabel("Amplitude (µV)")
-#plt.tight_layout()
-#plt.show()
+# edf_path = r"D:\downloads\PN00-1.edf"
+#
+# data, ch_names, sfreq = load_edf_data(edf_path)
+#
+# np.info(data)
+#
+# times = np.arange(data.shape[1]) / sfreq
+# #plt.plot(times, data[0])
+# #plt.title(f"Channel {ch_names[0]}")
+# #plt.xlabel("Time (s)")
+# #plt.ylabel("Amplitude (µV)")
+# #plt.tight_layout()
+# #plt.show()
 
 def plot_eeg_overview(data, ch_names, sfreq, n_channels=5, offset=100):
     times = np.arange(data.shape[1]) / sfreq
