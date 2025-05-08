@@ -8,7 +8,6 @@
 
 
 project = 'EEG Toolbox'
-copyright = '2025, Veronika Szabolcsi, Dorka Kecskés, Huba Kukor'
 author = 'Veronika Szabolcsi, Dorka Kecskés, Huba Kukor'
 release = '0.1.0'
 
