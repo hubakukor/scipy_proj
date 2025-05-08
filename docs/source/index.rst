@@ -6,6 +6,13 @@
 EEG Toolbox documentation
 =========================
 
+This toolbox provides EEG data loading, filtering, normalization,
+visualization, detection of EEG bands and Fourier analysis.
+
+Source code available at `https://github.com/hubakukor/scipy_proj`.
+
+Install with ``pip install git+https://github.com/hubakukor/scipy_proj.git``
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -18,3 +25,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Authors: Veronika Szabolcsi, Dorka Kecskés, Huba Kukor
