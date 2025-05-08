@@ -8,5 +8,5 @@ Documentation: https://scipy-proj.readthedocs.io/en/latest/index.html
 
 ```bash
 pip install git+https://github.com/hubakukor/scipy_proj.git
-
+```
 Authors: Veronika Szabolcsi, Dorka Kecskés, Huba Kukor
