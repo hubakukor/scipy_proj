@@ -8,7 +8,7 @@ def resample_data(data, old_sfreq, new_sfreq):
     """
     Resample EEG data to a new sampling frequency.
 
-    Parameters:
+    Args:
         data (np.ndarray): EEG data, shape (n_channels, n_times)
         old_sfreq (float): Original sampling rate.
         new_sfreq (float): Target sampling rate.
@@ -27,7 +27,7 @@ def notch_filter(data, fs, filter_freq=50.0, Q=200):
     """
     Apply a notch filter at `freq` Hz to remove power line noise.
 
-    Parameters:
+    Args:
         data (np.ndarray): EEG data (n_channels, n_times)
         fs (float): Sampling frequency
         filter_freq (float): Line noise frequency to remove (50 or 60 Hz)
@@ -46,7 +46,7 @@ def bandpass_filter(data, freq, lowcut = None, highcut = None, order=5):
     """
     Apply bandpass Butterworth filter.
 
-    Parameters:
+    Args:
         data (np.ndarray): EEG data, shape (n_channels, n_times)
         lowcut (float): Low cutoff frequency.
         highcut (float): High cutoff frequency.
@@ -78,7 +78,7 @@ def zscore_normalization(data):
     Apply z-score normalization per channel.
     (doesn't work with fourier transform, only the dc component (0hz) remains in ft)
 
-    Parameters:
+    Args:
         data (np.ndarray): EEG data, shape (n_channels, n_times)
 
     Returns:
@@ -95,7 +95,7 @@ def minmax_normalization(data):
     """
     Apply min-max normalization per channel.
 
-    Parameters:
+    Args:
         data (np.ndarray): EEG data, shape (n_channels, n_times)
 
     Returns:
@@ -112,7 +112,7 @@ def mean_centering(data):
     """
     Subtract mean per channel.
 
-    Parameters:
+    Args:
         data (np.ndarray): EEG data, shape (n_channels, n_times)
 
     Returns:

@@ -5,6 +5,7 @@ from numpy.fft import fft, ifft
 def data_fourier(data):
     '''
     Calculates the Fourier transform of EEG channels of the data.
+
     Args:
         data (np.ndarray): The loaded data stored in a numpy array.
 
