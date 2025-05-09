@@ -16,10 +16,12 @@ pip install eeg_toolbox
 ```
 
 ## Example Usage
-Click on the Colab button below to open the demo notebook in Google Colab, or download the example notebook demo.ipynb and the example data file PN00-1.edf from the [examples](https://github.com/hubakukor/scipy_proj/tree/master/examples) folder in the repository.
-The notebook can be run in Google Colab after uploading the data file and the notebook.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hubakukor/scipy_proj/blob/master/examples/demo.ipynb)
+
+Click on the Colab button above to open the demo notebook in Google Colab, or download the example notebook demo.ipynb and the example data file PN00-1.edf from the [examples](https://github.com/hubakukor/scipy_proj/tree/master/examples) folder in the repository.
+The notebook can be run in Google Colab after uploading the data file and the notebook.
+
 
 ## Description
 The following steps are implemented in the EEG processing toolbox:
