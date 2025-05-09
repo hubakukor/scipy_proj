@@ -45,6 +45,10 @@ Description
    :alt: Example pipeline
    :width: 400px
 
+.. image:: grapho_elements.png
+   :alt: Example pipeline
+   :width: 400px
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
