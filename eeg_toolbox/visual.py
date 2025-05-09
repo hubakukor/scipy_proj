@@ -13,8 +13,6 @@ def plot_eeg_overview(data, ch_names, sfreq, n_channels=5, offset=100):
         n_channels: The first n channels of the EEG data that appears on the plots. (Default: 5)
         offset: Customize the offset of the data on the plot. (Default: 100)
 
-    Returns:
-
     """
     times = np.arange(data.shape[1]) / sfreq
     data_scaled = data * 1e6
@@ -38,8 +36,6 @@ def plot_fft_spectrum(mean_fft, sfreq, n_samples):
         sfreq: Sampling frequency of the EEG data.
         n_samples: The number of data points in the EEG data.
 
-    Returns:
-
     """
     freqs = np.fft.fftfreq(n_samples, 1 / sfreq)
     plt.figure(figsize=(10, 4))
@@ -54,17 +50,21 @@ def plot_fft_spectrum(mean_fft, sfreq, n_samples):
 
 def plot_graph_segments(data, sfreq, events, ch_names, window_sec=1.5, n_show=5):
     """
-    Plots the EEG bands detected in the data with a custom size window around the detected events. Requires the returned data from detect_graphoelements() function.
+        Plots the EEG bands detected in the data with a custom size window around the detected events. Requires the returned data from detect_graphoelements() function.
 
-    Args:
-        data:
-        sfreq: Sampling frequency of the EEG data.
-        events:
-        ch_names: A list containing the names of the EEG channels. Returned from load_edf_data().
-        window_sec: The plot visualizes a +- window_sec second window around the detected events. Default: 1.5
-        n_show:
+        Args:
+            data: A two dimensional array with the shape (n_channels, n_samples). n_channels: how many EEG channels; n_samples: how many samples are on each channel (length in time)
+            sfreq: Sampling frequency of the EEG data.
+            events: Events returned by the detect_graphoelements function. All elements have this structure:
+                {"channel_index": The index of the channel on which the event is occuring.
+                "time_sec": The time of the event expressed in secundum.
+                "energy_3_8Hz": The energy of the detected event between 3 and 8 Hz.
+                "dominant_rhythm": What kind of wave is the detected event e.g. theta, delta etc.
+                energy of all the other bands}
+            ch_names: A list containing the names of the EEG channels. Returned from load_edf_data().
+            window_sec: The plot visualizes a +- window_sec second window around the detected events. Default: 1.5
+            n_show: How many detected events to draw from the events list.
 
-    Returns:
 
     """
     window_samples = int(window_sec * sfreq)

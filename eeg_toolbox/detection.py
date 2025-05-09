@@ -12,7 +12,12 @@ def detect_graphoelements(data, sfreq, bands, duration_sec = 60):
         duration_sec: The number of seconds to process the the signals.
 
     Returns:
-            results: The detected graphoelements. It can be visualised with the plot_graph_segments() function.
+            results: Events returned by the detect_graphoelements function. All elements have this structure:
+                {"channel_index": The index of the channel on which the event is occuring.
+                "time_sec": The time of the event expressed in secundum.
+                "energy_3_8Hz": The energy of the detected event between 3 and 8 Hz.
+                "dominant_rhythm": What kind of wave is the detected event e.g. theta, delta etc.
+                energy of all the other bands}
     """
     stop_sample = int(duration_sec * sfreq)
     nperseg = int(1.0 * sfreq)
