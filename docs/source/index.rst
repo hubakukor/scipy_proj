@@ -36,7 +36,7 @@ mne==1.9.0
 
 numpy==2.2.5
 
-The required libraries are automatically downloaded with the PIP install
+The required libraries are automatically downloaded with the PIP install.
 
 Description
 -------
