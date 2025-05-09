@@ -45,6 +45,36 @@ Description
    :alt: Example pipeline
    :width: 400px
 
+The following steps are implemented in the EEG processing toolbox:
+
+Loading EEG data
+~~~~~~~~~~
+The toolbox supports the loading of EEG signals from .edf (European Data Format) files using the mne library. The raw data is returned in NumPy array format along with the sampling frequency and channel names, enabling further processing and analysis.
+
+Preprocessing
+~~~~~~~~~~
+The toolbox includes basic preprocessing methods such as:
+  - *Resampling*: EEG data can be resampled to a new target sampling frequency.
+  - *Filtering*: Bandpass filtering and notch filtering are supported to remove noise, such as powerline interference and unwanted frequency components.
+  - *Normalization*: Z-score, min-max normalization, and mean centering can be applied on a per-channel basis to standardize the signals for analysis.
+
+Spectral Analysis
+~~~~~~~~~~
+Using the Fourier transform, the toolbox computes the frequency spectrum of EEG signals. It also calculates the average power spectrum across channels to facilitate interpretation of dominant rhythms and spectral characteristics.
+
+Event Detection
+~~~~~~~~~~
+A method is provided to detect graphoelements (distinctive EEG patterns) using short-time Fourier transform (STFT). The detection focuses on elevated energy in the 3–8 Hz band and identifies dominant rhythms (e.g., theta or delta waves) based on energy across predefined frequency bands.
+
+Visualization
+~~~~~~~~~~
+Multiple visualization utilities are included:
+  - *EEG overview plotting*: Time-domain plots of selected EEG channels.
+  - *FFT spectrum plotting*: Visualization of the mean power spectrum.
+  - *Event segment plotting*: Graphical display of EEG segments around detected graphoelements, highlighting their temporal and rhythmic context.
+
+This toolbox is intended to support lightweight, scriptable EEG analysis pipelines for research and prototyping, particularly in scenarios where standard EDF EEG files are used as input.
+
 .. image:: grapho_elements.png
    :alt: Example pipeline
    :width: 400px
