@@ -2,6 +2,18 @@ import numpy as np
 from scipy.signal import stft, find_peaks
 
 def detect_graphoelements(data, sfreq, bands, duration_sec = 60):
+    """
+    Using Short-time Fourier transfrom, it examines the 3–8 Hz energy on all channels. If this is abnormal, the event is recorded.
+
+    Args:
+        data: EEG signal matrix [channel, time].
+        sfreq: Sampling frequency of the EEG data.
+        bands:  Describes the frequency bands. Eg.: bands={"delta" : [0, 4], "theta": [4, 8]})
+        duration_sec: The number of seconds to process the the signals.
+
+    Returns:
+            results: The detected graphoelements. It can be visualised with the plot_graph_segments() function.
+    """
     stop_sample = int(duration_sec * sfreq)
     nperseg = int(1.0 * sfreq)
     noverlap = int(0.9 * sfreq)
