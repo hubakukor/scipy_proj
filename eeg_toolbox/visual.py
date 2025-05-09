@@ -59,7 +59,7 @@ def plot_graph_segments(data, sfreq, events, ch_names, window_sec=1.5, n_show=5)
     Args:
         data:
         sfreq: Sampling frequency of the EEG data.
-        events: The detected EEG bands from detect_graphoelements().
+        events:
         ch_names: A list containing the names of the EEG channels. Returned from load_edf_data().
         window_sec: The plot visualizes a +- window_sec second window around the detected events. Default: 1.5
         n_show:
