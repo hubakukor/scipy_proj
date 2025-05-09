@@ -86,7 +86,7 @@ Example Usage
    :target: https://colab.research.google.com/github/hubakukor/scipy_proj/blob/master/examples/demo.ipynb
    :alt: Open In Colab
 
-To get started with the EEG processing toolbox, you can run the provided Jupyter notebook demo.ipynb. This notebook demonstrates how to use the toolbox to load, preprocess, analyze, and visualize EEG data.
+To get started with the EEG processing toolbox, you can run the provided Jupyter notebook demo.ipynb by clicking on the Colab button above or downloading the files manually. This notebook demonstrates how to use the toolbox to load, preprocess, analyze, and visualize EEG data.
 
 The example uses the EEG recording file PN00-1.edf, which should be placed in the same directory as the notebook or correctly referenced in the file path.
 
