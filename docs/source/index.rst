@@ -15,6 +15,27 @@ A demo notebook showcasing the toolbox is available at `https://github.com/hubak
 
 Install with ``pip install git+https://github.com/hubakukor/scipy_proj.git``
 
+Introduction
+-------
+
+Installation
+-------
+Install with ``pip install git+https://github.com/hubakukor/scipy_proj.git``
+
+Requirements
+-------
+Python == 3.10
+
+scipy==1.15.2
+
+matplotlib==3.10.1
+
+mne==1.9.0
+
+numpy==2.2.5
+
+The required libraries are automatically downloaded with the PIP install
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
