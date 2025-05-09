@@ -41,8 +41,8 @@ The required libraries are automatically downloaded with the PIP install
 Description
 -------
 
-.. image:: example.png
-   :alt: Example Image
+.. image:: figure.png
+   :alt: Example pipeline
    :width: 400px
 
 .. toctree::
