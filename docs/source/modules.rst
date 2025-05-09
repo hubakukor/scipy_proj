@@ -1,14 +1,6 @@
 eeg_toolbox package
 ===================
 
-.. automodule:: eeg_toolbox
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Submodules
-----------
-
 .. automodule:: eeg_toolbox.load
    :members:
    :undoc-members:

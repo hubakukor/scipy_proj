@@ -4,7 +4,7 @@ import numpy as np
 
 def load_edf_data(filepath):
     '''
-    Load EDF data from a file path.
+    Load the raw EDF data from a file path into a Numpy array.
 
     Args:
         filepath (str): Path to the EDF file.
