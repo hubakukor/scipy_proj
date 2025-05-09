@@ -11,8 +11,7 @@ visualization, detection of EEG bands and Fourier analysis.
 
 Source code available at `https://github.com/hubakukor/scipy_proj`.
 
-A demo notebook showcasing the toolbox is available at `https://github.com/hubakukor/scipy_proj/blob/master/examples/demo.ipynb`.
-
+PyPI page: https://pypi.org/project/eeg-toolbox/
 
 Introduction
 -------
