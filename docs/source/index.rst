@@ -79,6 +79,13 @@ This toolbox is intended to support lightweight, scriptable EEG analysis pipelin
    :alt: Example pipeline
    :width: 400px
 
+Example Usage
+--------
+
+To get started with the EEG processing toolbox, you can run the provided Jupyter notebook demo.ipynb. This notebook demonstrates how to use the toolbox to load, preprocess, analyze, and visualize EEG data.
+
+The example uses the EEG recording file PN00-1.edf, which should be placed in the same directory as the notebook or correctly referenced in the file path.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
