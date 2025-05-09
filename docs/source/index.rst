@@ -22,7 +22,7 @@ As a result, the package offers a reliable, customizable, and easily expandable 
 
 Installation
 -------
-Install with ``pip install git+https://github.com/hubakukor/scipy_proj.git``
+Install with ``pip install eeg_toolbox``
 
 Requirements
 -------
