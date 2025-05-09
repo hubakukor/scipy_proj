@@ -6,10 +6,16 @@ As a result, the package offers a reliable, customizable, and easily expandable 
 
 
 Documentation: https://scipy-proj.readthedocs.io/en/latest/index.html
+Source code: https://github.com/hubakukor/scipy_proj
 
 ## Installation
 
 ```bash
-pip install git+https://github.com/hubakukor/scipy_proj.git
+pip install eeg_toolbox
 ```
+
+## Example Usage
+Download the example notebook demo.ipynb and the example data file PN00-1.edf from examples folder in the repository.
+The notebook can be run in Google Colab after uploading the data file and the notebook.
+
 Authors: Veronika Szabolcsi, Dorka Kecskés, Huba Kukor

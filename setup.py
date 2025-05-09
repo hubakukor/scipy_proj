@@ -5,7 +5,6 @@ setup(
     version='0.1.0',
     description='A simple EEG signal processing toolbox',
     author='Veronika Szabolcsi, Dorka Kecskés, Huba Kukor',
-    #author_email='kukor.huba@hallgato.ppke.hu',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/hubakukor/scipy_proj',
@@ -17,7 +16,7 @@ setup(
         'matplotlib'
     ],
     python_requires='>=3.10',
-classifiers=[
+    classifiers=[
         'Programming Language :: Python :: 3',
         ],
 )

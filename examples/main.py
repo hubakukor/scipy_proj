@@ -4,10 +4,8 @@ from eeg_toolbox.load import load_edf_data
 from eeg_toolbox.fourier_of_data import data_fourier
 from eeg_toolbox.processing import notch_filter
 
-# path to the EDF file
-edf_path = r"D:\downloads\PN00-1.edf"
 
-data, ch_names, sfreq = load_edf_data(edf_path)
+data, ch_names, sfreq = load_edf_data('PN00-1.edf')
 
 
 # Processing steps
