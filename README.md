@@ -16,8 +16,9 @@ pip install eeg_toolbox
 ```
 
 ## Example Usage
-Download the example notebook demo.ipynb and the example data file PN00-1.edf from the [examples](https://github.com/hubakukor/scipy_proj/tree/master/examples) folder in the repository.
+Download the example notebook demo.ipynb (or click on the Colab badge below) and the example data file PN00-1.edf from the [examples](https://github.com/hubakukor/scipy_proj/tree/master/examples) folder in the repository.
 The notebook can be run in Google Colab after uploading the data file and the notebook.
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hubakukor/scipy_proj/blob/master/examples/demo.ipynb)
 
 ## Description
